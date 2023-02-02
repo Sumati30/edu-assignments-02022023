@@ -1,0 +1,35 @@
+<div>
+    <div class="container">
+        <br>
+        <br/>
+
+        <div>
+            <h4>Employee Details</h4>
+        </div>
+        <br />
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Employee ID</td>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Salary</td>
+                        <td>DOB</td>
+                        <td>Email</td>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let emp of employees" appEmpDirective>
+                    <tr>
+                        <td>{{emp.employeeId}}</td>
+                        <td>{{emp.firstName}}</td>
+                        <td>{{emp.LastName}}</td>
+                        <td>{{emp.salary | currency : 'INR'}}</td>
+                        <td>{{emp.DOB | date}}</td>
+                        <td>{{emp.email}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

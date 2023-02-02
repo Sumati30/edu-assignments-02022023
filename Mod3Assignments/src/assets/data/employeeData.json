@@ -1,0 +1,42 @@
+[
+    {
+        "employeeId": 1002,
+        "firstName": "Tom",
+        "LastName": "Andy",
+        "salary": 30000,
+        "DOB": "7/16/1983",
+        "email": "tom@abc.com"
+    },
+    {
+        "employeeId": 1004,
+        "firstName": "Jerry",
+        "LastName": "Smith",
+        "salary": 20000,
+        "DOB": "9/07/1983",
+        "email": "jerry@abc.com"
+    },
+    {
+        "employeeId": 1005,
+        "firstName": "Nihal",
+        "LastName": "Bose",
+        "salary": 15000,
+        "DOB": "11/02/1983",
+        "email": "nihal@abc.com"
+    },
+    {
+        "employeeId": 1006,
+        "firstName": "John",
+        "LastName": "Smith",
+        "salary": 18000,
+        "DOB": "10/27/1983",
+        "email": "john@abc.com"
+    },
+    {
+        "employeeId": 1008,
+        "firstName": "Mery",
+        "LastName": "Smith",
+        "salary": 8000,
+        "DOB": "10/27/1983",
+        "email": "Mery@abc.com"
+    }
+]
