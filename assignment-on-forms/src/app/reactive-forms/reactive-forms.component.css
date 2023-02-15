@@ -1,0 +1,20 @@
+
+form {
+    margin: 25px;
+    align-content: center;
+    display: grid;
+    overflow: hidden;
+}
+
+label {
+    margin : 20px,
+}
+
+input {
+    margin-left: 30px;
+    
+}
+
+.user{
+    margin: 35px;
+}

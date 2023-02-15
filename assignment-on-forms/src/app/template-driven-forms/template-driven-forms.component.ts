@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template-driven-forms.component.css']
 })
 export class TemplateDrivenFormsComponent implements OnInit {
+  visible: boolean = false;
+  fullName = '';
+  email = '';
+  phoneNum = '';
+  password = '';
+  confPassword = '';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+    this.visible = true;
   }
 
 }

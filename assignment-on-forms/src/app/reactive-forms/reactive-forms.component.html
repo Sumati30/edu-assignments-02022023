@@ -1,1 +1,40 @@
-<p>reactive-forms works!</p>
+<h3>Reactive Form</h3>
+<div class="row">
+    <div class="col-md-6">
+        <form [formGroup]="userForm"
+               (ngSubmit)="onSubmit()">
+            <label>Full Name : </label>
+            <input type="text" formControlName="fullName" > 
+            <br/> 
+            <label>Email : </label>
+            <input type="email" formControlName="email" > 
+            <br/>
+            <label>Address : </label>
+            <input type="text" formControlName="address" > 
+            <br/>
+            <label>City : </label>
+            <input type="text" formControlName="city" > 
+            <br/>
+            <label>Phone Number : </label>
+            <input type="number" formControlName="phoneNum" > 
+            <br/>
+            <label>Password : </label>
+            <input type="password" formControlName="password" > 
+            <br/>
+            <label>Confirm Password : </label>
+            <input type="password" formControlName="confPassword" >
+            <br/>
+            <button>Register</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <div class="user">
+            <p>Full name is : {{userData.fullName}}</p>
+            <p>Email id is : {{userData.email}}</p>
+            <p>Address is given as: {{userData.address}}</p>
+            <p>City is : {{userData.city}}</p>
+            <p>Phone number is : {{userData.phoneNum}}</p>
+            <p>The password is : {{userData.password}}</p>
+        </div>
+    </div>
+</div>
