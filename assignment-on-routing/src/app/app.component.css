@@ -1,0 +1,25 @@
+.container{
+    padding-top: 30px;
+    padding-left: 25px;
+    padding-right: 30px;
+}
+
+ul{
+    background-color: rgb(227, 239, 250);
+    
+}
+li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;  
+}
+
+li:hover {
+ background-color: rgb(168, 188, 243);
+}
+
+.active{
+    background-color: rgb(168, 188, 243);
+}
+

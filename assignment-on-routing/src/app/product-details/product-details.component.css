@@ -1,0 +1,15 @@
+
+
+img{
+    width: 250px;
+    height: 220px;
+}
+.link{
+  position:absolute;
+  bottom: 0; 
+  margin-bottom: 30px;
+}
+
+#dtls{
+    max-width: 300px ;
+}

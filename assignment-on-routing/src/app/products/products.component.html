@@ -1,0 +1,23 @@
+<div>
+    <div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let prod of products">
+                        <td>{{prod.name}}</td>
+                        <td>{{prod.price}}</td>
+                        <td><button (click)="getProdDetails(prod.id)">Product details</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>
