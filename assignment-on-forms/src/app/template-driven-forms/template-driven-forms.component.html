@@ -3,23 +3,60 @@
 <h3>Template Driven Form</h3>
 <div class="row">
     <div class="col-md-6">
-        <form >
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
             <label>Full Name : </label>
-            <input type="text" name="fullName" [(ngModel)]="fullName" > 
+            <input type="text" name="fullName" [(ngModel)]="fullName" required #name="ngModel">
+            <div *ngIf="name.invalid && (name.touched || name.dirty)" class="alert alert-danger">
+                Name is required!
+            </div> 
             <br/> 
             <label>Email : </label>
-            <input type="email" name="email" [(ngModel)]="email" > 
+            <input type="email" name="email" [(ngModel)]="email"  #emaill="ngModel" email>
+            <div *ngIf="emaill.invalid && (emaill.touched || emaill.dirty)" class="alert alert-danger">
+                Valid Email is required!
+            </div> 
             <br/>
             <label>Phone Number : </label>
-            <input type="number" name="phoneNum" [(ngModel)]="phoneNum" > 
+            <input type="text" name="phoneNum" 
+            [(ngModel)]="phoneNum" 
+            required 
+            #num="ngModel" 
+            minlength="10" 
+            maxlength="12" 
+            phoneMask> 
+            <div *ngIf="num.invalid && (num.touched || num.dirty)" class="alert alert-danger">
+                <div *ngIf="num.errors.required">
+                    Phone Number is required!
+                  </div>
+                  <div *ngIf="num.errors.minlength">
+                    Please enter valid Phone Number! (Min 10 digits)
+                  </div>
+                  <div *ngIf="num.errors.maxlength">
+                    Please enter valid Phone Number! (Max 12 diits) 
+                  </div>
+                
+            </div> 
             <br/>
             <label>Password : </label>
-            <input type="password" name="password" [(ngModel)]="password" > 
+            <input type="password" name="pwd" [(ngModel)]="password" required #pwd="ngModel" minlength="6" compare-password="confPword" parent="true"> 
+            <div *ngIf="pwd.invalid && (pwd.touched || pwd.dirty)" class="alert alert-danger">
+                <div *ngIf="pwd.errors.required">
+                    Password is required!
+                </div>
+                <div *ngIf="pwd.errors.minlength">
+                    Please enter valid Password! (Minimum 6 letters)
+                </div>
+            </div> 
             <br/>
             <label>Confirm Password : </label>
-            <input type="password" name="confPassword" [(ngModel)]="confPassword" >
+            <input type="password" name="confPword" [(ngModel)]="confPassword" required #confPword="ngModel" compare-password="pwd">
+            <div *ngIf="confPword.invalid && (confPword.touched || confPword.dirty )" class="alert alert-danger">
+                <div *ngIf="confPword.errors.compare">
+                    Password Doesn't match!
+                </div>
+            </div> 
             <br/>
-            <button (click)="onSubmit()">Submit</button>
+            <button type="submit" [disabled]="!userForm.form.valid">Submit</button>
         </form>
     </div>
     <div class="col-md-6">

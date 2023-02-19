@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { TemplateDrivenFormsComponent } from './template-driven-forms/template-driven-forms.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { ComparePasswordsDirective } from './directives/compare-passwords.directive'
 
 @NgModule({
   declarations: [
     AppComponent,
     ReactiveFormsComponent,
-    TemplateDrivenFormsComponent
+    TemplateDrivenFormsComponent,
+    ComparePasswordsDirective
   ],
   imports: [
     BrowserModule,

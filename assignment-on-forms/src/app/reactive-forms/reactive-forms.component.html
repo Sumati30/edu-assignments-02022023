@@ -1,33 +1,80 @@
 <h3>Reactive Form</h3>
 <div class="row">
     <div class="col-md-6">
-        <form [formGroup]="userForm"
-               (ngSubmit)="onSubmit()">
-            <label>Full Name : </label>
-            <input type="text" formControlName="fullName" > 
-            <br/> 
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <label for="fullName">Full Name : </label>
+            <input type="text" id="fullName" formControlName="fullName" required>
+            <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="alert alert-danger">
+                <p>Name is required!</p>
+            </div>
+            <br />
             <label>Email : </label>
-            <input type="email" formControlName="email" > 
-            <br/>
+            <input type="email" formControlName="email">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                <div *ngIf="email.errors.required">
+                    Email is required!
+                </div>
+                <div *ngIf="email.errors.email">
+                    Please enter valid Email! 
+                </div>
+            </div>
+            <br />
             <label>Address : </label>
-            <input type="text" formControlName="address" > 
-            <br/>
+            <input type="text" formControlName="address">
+            <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+                <p>Address is required!</p>
+            </div>
+            <br />
             <label>City : </label>
-            <input type="text" formControlName="city" > 
-            <br/>
+            <input type="text" formControlName="city">
+            <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+                <p>City is required!</p>
+            </div>
+            <br />
             <label>Phone Number : </label>
-            <input type="number" formControlName="phoneNum" > 
-            <br/>
+            <input  type="text" formControlName="phoneNum" (keypress)="keyPress($event)">
+
+            <div *ngIf="phoneNum.invalid && (phoneNum.dirty || phoneNum.touched)" class="alert alert-danger">
+                <div *ngIf="phoneNum.errors.required">
+                    Phone Number is required!
+                </div>
+                <div *ngIf="phoneNum.errors.minlength">
+                    Please enter valid Phone Number! (Min 10 digits)
+                </div>
+                <div *ngIf="phoneNum.errors.maxlength">
+                    Please enter valid 10 digit Phone Number! (Max 12 digits including Country code.)
+                </div>
+                <div *ngIf="phoneNum.errors.pattern">
+                    Please Enter Numbers Only!
+                </div>
+            </div>
+            <br />
             <label>Password : </label>
-            <input type="password" formControlName="password" > 
-            <br/>
+            <input type="password" formControlName="password">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                <div *ngIf="password.errors.required">
+                    Password is required!
+                </div>
+                <div *ngIf="password.errors.minlength">
+                    Please enter valid Password! (Min 6 digits)
+                </div>
+            </div>
+            <br />
             <label>Confirm Password : </label>
-            <input type="password" formControlName="confPassword" >
-            <br/>
-            <button>Register</button>
+            <input type="password" formControlName="confirmPassword">
+            <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="alert alert-danger">
+                <div *ngIf="confirmPassword.errors.required">
+                    Confirm-Password is required!
+                </div>
+                <div *ngIf="confirmPassword.errors.ConfirmPassword">
+                    Passwords must match!
+                </div>
+            </div>
+            <br />
+            <button type="submit" [disabled]="!userForm.valid">Register</button>
         </form>
     </div>
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
         <div class="user">
             <p>Full name is : {{userData.fullName}}</p>
             <p>Email id is : {{userData.email}}</p>
@@ -36,5 +83,5 @@
             <p>Phone number is : {{userData.phoneNum}}</p>
             <p>The password is : {{userData.password}}</p>
         </div>
-    </div>
+    </div> -->
 </div>
