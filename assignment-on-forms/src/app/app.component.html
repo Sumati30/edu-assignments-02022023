@@ -1,14 +1,18 @@
-<div class="container">
-  <div>
-    <div>
-      <h2>Forms in Angular!</h2>
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
     </div>
-    <div>
-      <ul>
-        <li><a routerLink="/reactive-form">Reactive Forms</a></li>
-        <li><a routerLink="/template-form">Template Driven Forms</a></li>
-      </ul>
-    </div>
+</nav>
+
+
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-6 offset-sm-3"> 
+              <app-alert></app-alert>       
+              <router-outlet></router-outlet>
+          </div>
+      </div>
   </div>
-  <div id="outlet"><router-outlet></router-outlet></div>
 </div>
